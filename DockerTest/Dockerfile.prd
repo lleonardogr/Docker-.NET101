@@ -1,0 +1,13 @@
+# Imagem de base para o SDK do .NET 6.0
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+EXPOSE 80/tcp
+EXPOSE 443/tcp
+
+# Define o diretório de trabalho como /app
+WORKDIR /app
+
+# Copia os arquivos do projeto para o diretório de trabalho
+COPY bin/Release/net6.0/publish
+
+# Define o comando de entrada da aplicação
+ENTRYPOINT ["dotnet", "DockerTest.dll"]
